@@ -4,11 +4,11 @@
 
 Pull to refresh is one of most frequently feature to be used in the all of apps, this component provides a easiest way to add pull to refresh feature for your table view.
 
-![Screenshot.gif]()
+![Screenshot.gif]() (TBD)
 
 ### Languages
 
-[中文]()
+[中文]() (TBD)
 
 ### Usage
 
@@ -35,7 +35,7 @@ tableView.cr.tintColor = UIColor.brown
 
 ### Usage Example (TBD)
 
-Check out the Simple project in the example directory to see more.
+Check out the Sample project in the example directory to see more.
 
 ### Installation (TBD)
 
