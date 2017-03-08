@@ -33,15 +33,15 @@ As you saw above, we can simply enable this component for our table view, we may
 tableView.cr.tintColor = UIColor.brown
 ```
 
-### Usage Example
+### Usage Example (TBD)
 
 Check out the Simple project in the example directory to see more.
 
-### Installation
+### Installation (TBD)
 
-#### CocoaPods
+#### CocoaPods (TBD)
 
-#### Manual Install
+#### Manual Install (TBD)
 
 ### Requirements
 
@@ -58,3 +58,7 @@ Forks, patches and other feedback are welcome.
 I'm Mellong, E-Mail: [121382647@qq.com](121382647@qq.com) 
 
 Website: [http://www.devlong.com](http://www.devlong.com)
+
+### License
+
+MIT License
