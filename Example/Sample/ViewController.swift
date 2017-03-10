@@ -25,11 +25,13 @@ import UIKit
 
 
 class ViewController: UITableViewController {
+    
     var datasource: [String]?
+    var loadingViewsType: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.navigationBar.isHidden = true
+
         title = "CRPullToRefresh"
         
         tableView.tableFooterView = UIView()
@@ -39,12 +41,26 @@ class ViewController: UITableViewController {
             dataList.append("Title for \(i)")
         }
         
+        var loadingView: LoadingView
+        
+        guard let loadingViewsType = loadingViewsType else {
+            return
+        }
+        switch loadingViewsType {
+        case "Circlet":
+            loadingView = LoadingCircletView()
+        case "Rectangle":
+            loadingView = LoadingRectangleView()
+        default:
+            loadingView = LoadingCircleView()
+        }
+        
         // Enable pull to refresh.
-        tableView.cr.enablePullRefresh(loadingView: LoadingCircletView()) { [unowned self] in
+        tableView.cr.enablePullRefresh(loadingView: loadingView) {
             print("Start requesting data from the remote server...")
             
             // Network request simulation
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [unowned self] in
                 
                 self.datasource = dataList
                 self.tableView.reloadData()
@@ -53,7 +69,7 @@ class ViewController: UITableViewController {
             
         }
         
-        tableView.cr.tintColor = UIColor.brown
+        tableView.cr.tintColor = UIColor.white
 
     }
     

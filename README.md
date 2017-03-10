@@ -33,6 +33,13 @@ As you saw above, we can simply enable this component for our table view, we may
 tableView.cr.tintColor = UIColor.brown
 ```
 
+Finally, we should call the `remove()` method in the view controller's `deinit`
+
+```swift
+deinit {
+        tableView.cr.remove()
+}
+```
 ### Usage Example (TBD)
 
 Check out the Sample project in the example directory to see more.
@@ -55,7 +62,7 @@ If you're using CocoRongPullToRefresh in one of your own projects, let me know! 
 Forks, patches and other feedback are welcome.
 
 ### Creator
-I'm Mellong, E-Mail: [121382647@qq.com](121382647@qq.com) 
+I'm Mellong, you can contact me by E-Mail: <121382647@qq.com>
 
 Website: [http://www.devlong.com](http://www.devlong.com)
 

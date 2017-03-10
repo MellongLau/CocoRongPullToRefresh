@@ -14,6 +14,7 @@
 		248D80001E28D1E60075C193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 248D7FFE1E28D1E60075C193 /* LaunchScreen.storyboard */; };
 		FDC615411E7035EB000E683D /* CocoRongPullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC6153F1E7035EB000E683D /* CocoRongPullToRefresh.swift */; };
 		FDC615421E7035EB000E683D /* LoadingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC615401E7035EB000E683D /* LoadingViews.swift */; };
+		FDFD7DE61E7039D200EAD523 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFD7DE51E7039D200EAD523 /* ListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		248D80011E28D1E60075C193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDC6153F1E7035EB000E683D /* CocoRongPullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoRongPullToRefresh.swift; sourceTree = "<group>"; };
 		FDC615401E7035EB000E683D /* LoadingViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViews.swift; sourceTree = "<group>"; };
+		FDFD7DE51E7039D200EAD523 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				248D7FF51E28D1E60075C193 /* AppDelegate.swift */,
 				248D7FF71E28D1E60075C193 /* ViewController.swift */,
+				FDFD7DE51E7039D200EAD523 /* ListTableViewController.swift */,
 				FDC6153E1E7035EB000E683D /* CocoRongPullToRefresh */,
 				248D7FF91E28D1E60075C193 /* Main.storyboard */,
 				248D7FFC1E28D1E60075C193 /* Assets.xcassets */,
@@ -154,6 +157,7 @@
 				248D7FF81E28D1E60075C193 /* ViewController.swift in Sources */,
 				FDC615421E7035EB000E683D /* LoadingViews.swift in Sources */,
 				248D7FF61E28D1E60075C193 /* AppDelegate.swift in Sources */,
+				FDFD7DE61E7039D200EAD523 /* ListTableViewController.swift in Sources */,
 				FDC615411E7035EB000E683D /* CocoRongPullToRefresh.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -52,7 +52,7 @@ class LoadingCircletView: UIView, LoadingView {
         let layer = CAShapeLayer()
         layer.lineWidth = 8.0
         layer.fillColor = UIColor.clear.cgColor
-        layer.strokeColor = UIColor.white.cgColor
+        layer.strokeColor = UIColor.lightGray.cgColor
         layer.strokeEnd = 0
         return layer
     }()
@@ -156,7 +156,7 @@ class LoadingRectangleView: UIView, LoadingView {
         let layer = CAShapeLayer()
         layer.lineWidth = 2.0
         layer.fillColor = UIColor.clear.cgColor
-        layer.strokeColor = UIColor.white.cgColor
+        layer.strokeColor = UIColor.lightGray.cgColor
         layer.strokeEnd = 0
         return layer
     }()
