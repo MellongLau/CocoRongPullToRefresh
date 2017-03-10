@@ -4,7 +4,7 @@
 
 Pull to refresh is one of most frequently feature to be used in the all of apps, this component provides a easiest way to add pull to refresh feature for your table view.
 
-![Screenshot.gif]() (TBD)
+![Screenshot](./screenshot/screenshot.gif) 
 
 ### Languages
 
