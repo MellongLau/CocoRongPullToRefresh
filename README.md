@@ -40,15 +40,33 @@ deinit {
         tableView.cr.remove()
 }
 ```
-### Usage Example (TBD)
+### Usage Example
 
 Check out the Sample project in the example directory to see more.
 
-### Installation (TBD)
+### Installation
+There are two approach to add `CocoRongPullToRefresh` to your exist project.
 
-#### CocoaPods (TBD)
+#### CocoaPods
 
-#### Manual Install (TBD)
+[CocoaPods](http://www.cocoapods.org) is the recommended way to add CocoRongPullToRefresh to your project.
+
+1. Add additional entry to your Podfile.
+
+  ```ruby
+  pod "CocoRongPullToRefresh", "~> 1.0"
+  ```
+
+2. Install  Pod(s) running `pod install` command.
+3. Include CocoRongPullToRefresh using `import CocoRongPullToRefresh `.
+
+#### Manual Install
+
+Run below command in Terminal.app:
+
+	$ git clone https://github.com/MellongLau/CocoRongPullToRefresh.git
+
+or download directly, then copy `CocoRongPullToRefresh` folder and add reference to your project.
 
 ### Requirements
 
@@ -65,6 +83,11 @@ Forks, patches and other feedback are welcome.
 I'm Mellong, you can contact me by E-Mail: <121382647@qq.com>
 
 Website: [http://www.devlong.com](http://www.devlong.com)
+
+## More
+Learn more? Follow my `WeChat` public account `mellong`:
+
+![WeChat QRcode](http://www.devlong.com/blogImages/qrcode_for_mellong.jpg)
 
 ### License
 
