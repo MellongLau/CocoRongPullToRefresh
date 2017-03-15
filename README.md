@@ -80,7 +80,7 @@ If you're using CocoRongPullToRefresh in one of your own projects, let me know! 
 Forks, patches and other feedback are welcome.
 
 ### Creator
-I'm Mellong, you can contact me by E-Mail: <121382647@qq.com>
+I'm Mellong, you can contact me by E-Mail: <tendencystudio@gmail.com>
 
 Website: [http://www.devlong.com](http://www.devlong.com)
 
