@@ -8,7 +8,7 @@ Pull to refresh is one of most frequently feature to be used in the all of apps,
 
 ### Languages
 
-[中文]() (TBD)
+[中文](./README_CN.md)
 
 ### Usage
 
