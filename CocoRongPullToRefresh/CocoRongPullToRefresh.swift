@@ -45,7 +45,7 @@ public protocol CocoRongPullToRefreshCompatible {
 }
 
 public extension CocoRongPullToRefreshCompatible {
-    public var cr: CocoRongPullToRefresh<Self> {
+    var cr: CocoRongPullToRefresh<Self> {
         get { return CocoRongPullToRefresh(self) }
     }
 }
@@ -191,11 +191,17 @@ public class PullToRefreshView: UIView {
         addSubview(view)
         addObservers()
         
-        let centerX = UIScreen.main.bounds.size.width/2.0
-        let centerY = CRCongfiguration.maxHeight / 2.0
-        view.center = CGPoint(x: centerX, y: centerY)
+//        let centerX = UIScreen.main.bounds.size.width/2.0
+//        let centerY = CRCongfiguration.maxHeight / 2.0
+//        view.center = CGPoint(x: centerX, y: centerY)
+        // update above frame to auto layout constraints
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        
         updateTintColor()
-        print(self.frame.origin.y)
+//        print(self.frame.origin.y)
         loadingCircleView.setup()
     }
     
@@ -263,9 +269,11 @@ public class PullToRefreshView: UIView {
                 shouldObserve = false
                 
                 if let top = currentContentTop {
-                    let isReachMaxHeightOffsetY = (y >= -top - CRCongfiguration.maxHeight)
+//                    print("top: \(top), y: \(y), max: \(CRCongfiguration.maxHeight)")
+//                    print(top)
+                    let isReachMaxHeightOffsetY = (y >= top - CRCongfiguration.maxHeight)
                     if !isDragging &&  isReachMaxHeightOffsetY && scrollView.isScrollEnabled {
-                        scrollView.contentInset.top = top + CRCongfiguration.maxHeight
+                        scrollView.contentInset.top = -top + CRCongfiguration.maxHeight
                         
                         // Disable scrollable of the scroll view when contentOffset reach the pullRefreshView max height.
                         scrollView.isScrollEnabled = false
@@ -280,7 +288,6 @@ public class PullToRefreshView: UIView {
                 
                 let progress = getCurrentProgress()
                 
-                
                 disableAnimation {
                     loadingCircleView.reset()
                     let result = (progress >= 1.0 ? 1.0 : progress)
@@ -290,8 +297,8 @@ public class PullToRefreshView: UIView {
             
             // Restore back to the original state when refresh is finish
             if isFinishLoading {
-                if let top = currentContentTop, y == -top {
-                    scrollView.contentInset.top = currentContentTop!
+                if let top = currentContentTop, y == top {
+                    scrollView.contentInset.top = -top
                     scrollView.isScrollEnabled = true
                 }
             }
@@ -310,10 +317,16 @@ public class PullToRefreshView: UIView {
         }
         
         if keyPath == CRKVOKey.contentOffset {
+            if currentContentTop == nil {
+                print(change?[.newKey])
+                if let contentOffset = change?[.newKey], let it = contentOffset as? CGPoint {
+                    currentContentTop = it.y
+                }
+            }
             
             handleContentOffset(change: change)
             
-        }else if keyPath == CRKVOKey.panGestureRecognizerState {
+        } else if keyPath == CRKVOKey.panGestureRecognizerState {
             let newState = scrollView.panGestureRecognizer.state
             if newState == .began {
                 isDragging = true
@@ -338,10 +351,6 @@ public class PullToRefreshView: UIView {
                 
             }
             
-        }else if keyPath == CRKVOKey.contentInset && currentContentTop == nil {
-            if let contentOffset = change?[.newKey] {
-                currentContentTop = (contentOffset as! UIEdgeInsets).top
-            }
         }
     }
     
@@ -359,13 +368,13 @@ public class PullToRefreshView: UIView {
         updateLayout()
         
         isFinishLoading = true
-        scrollView.setContentOffset(CGPoint(x: 0, y: -(currentContentTop ?? 0)), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0, y: (currentContentTop ?? 0)), animated: true)
 
     }
     
     /// Update PullToRefreshView layout.
     private func updateLayout() {
-        let height = -scrollView.contentOffset.y - (currentContentTop ?? 0.0)
+        let height = -scrollView.contentOffset.y + (currentContentTop ?? 0.0)
         frame.size.height = height < 0 ? 0: height
         frame.origin.y = -frame.size.height
 

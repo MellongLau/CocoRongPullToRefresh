@@ -41,8 +41,8 @@ class LoadingCircletView: UIView, LoadingView {
     public func startLoadingAnimation() {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.repeatCount = Float.infinity
-        animation.toValue = M_PI * 2.0
-        animation.fillMode = kCAFillModeForwards
+        animation.toValue = .pi * 2.0
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isAdditive = true
         animation.duration = 1.0
         shapeLayer.add(animation, forKey: "RotationAnimation")
@@ -61,8 +61,8 @@ class LoadingCircletView: UIView, LoadingView {
         let path = UIBezierPath()
         path.addArc(withCenter: center,
                     radius: CGFloat(radius),
-                    startAngle: CGFloat(-M_PI_2),
-                    endAngle: CGFloat(M_PI * 2.0 - M_PI_2),
+                    startAngle: CGFloat(-Double.pi / 2.0),
+                    endAngle: CGFloat(Double.pi * 2.0 - Double.pi / 2.0),
                     clockwise: true)
         return path.cgPath
     }
@@ -80,7 +80,7 @@ class LoadingCircletView: UIView, LoadingView {
         
         let drawCircle = { (center: CGPoint, radius: CGFloat) -> CALayer in
             let layer = CAShapeLayer()
-            layer.path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(-M_PI_2), endAngle: CGFloat(M_PI * 2.0 - M_PI_2), clockwise: true).cgPath
+            layer.path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(-Double.pi / 2.0), endAngle: CGFloat(.pi * 2.0 - Double.pi / 2.0), clockwise: true).cgPath
             
             return layer
             
@@ -94,11 +94,11 @@ class LoadingCircletView: UIView, LoadingView {
         let radiusDelta: CGFloat = 0.2
         let distanceDelta:CGFloat = 4.0
         
-        var degree: CGFloat = CGFloat(-M_PI_2 + 0.1)
+        var degree: CGFloat = CGFloat(-Double.pi / 2.0 + 0.1)
         let radius: CGFloat = CRCongfiguration.radius
         var currentRadius: CGFloat = 1.0
         var layerList:[CALayer] = []
-        while degree <= CGFloat(M_PI * 2.0 - M_PI_2 + 0.1) {
+        while degree <= CGFloat(.pi * 2.0 - Double.pi / 2.0 + 0.1) {
             
             currentRadius += radiusDelta
             
@@ -138,8 +138,8 @@ class LoadingRectangleView: UIView, LoadingView {
     public func startLoadingAnimation() {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.repeatCount = Float.infinity
-        animation.toValue = M_PI * 2.0
-        animation.fillMode = kCAFillModeForwards
+        animation.toValue = .pi * 2.0
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isAdditive = true
         animation.duration = 1.0
         shapeLayer.add(animation, forKey: "RotationAnimation")
@@ -192,8 +192,8 @@ class LoadingCircleView: UIView, LoadingView {
     public func startLoadingAnimation() {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.repeatCount = Float.infinity
-        animation.toValue = M_PI * 2.0
-        animation.fillMode = kCAFillModeForwards
+        animation.toValue = .pi * 2.0
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isAdditive = true
         animation.duration = 1.0
         shapeLayer.add(animation, forKey: "RotationAnimation")
@@ -207,8 +207,8 @@ class LoadingCircleView: UIView, LoadingView {
         let path = UIBezierPath()
         path.addArc(withCenter: center,
                     radius: CGFloat(radius),
-                    startAngle: CGFloat(-M_PI_2),
-                    endAngle: CGFloat(M_PI * 1.8 - M_PI_2),
+                    startAngle: CGFloat(-Double.pi / 2.0),
+                    endAngle: CGFloat(.pi * 1.8 - Double.pi / 2.0),
                     clockwise: true)
         return path.cgPath
     }
