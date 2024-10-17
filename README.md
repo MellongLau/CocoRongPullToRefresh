@@ -16,9 +16,10 @@ Pull to refresh is one of most frequently feature to be used in the all of apps,
 * There is a sample to demonstrate how to use this component easily.
 
 ```swift
-tableView.cr.enablePullRefresh {
+tableView.cr.enablePullRefresh { [weak self] in
+	guard let self else { return }
 	// Call data api from remote server.
-        get("http://xxx.com/api/productlist") { dataList in
+    get("http://xxx.com/api/productlist") { dataList in
 		// Update table view datasource
 		self.tableView.datasource = dataList
 		self.tableView.reloadData()
@@ -38,7 +39,7 @@ Finally, we should call the `remove()` method in the view controller's `deinit`
 
 ```swift
 deinit {
-        tableView.cr.remove()
+    tableView.cr.remove()
 }
 ```
 ### Usage Example
@@ -55,7 +56,7 @@ There are two approach to add `CocoRongPullToRefresh` to your exist project.
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "CocoRongPullToRefresh", "~> 1.0"
+  pod "CocoRongPullToRefresh", "~> 1.0.0"
   ```
 
 2. Install  Pod(s) running `pod install` command.
@@ -71,7 +72,7 @@ or download directly, then copy `CocoRongPullToRefresh` folder and add reference
 
 ### Requirements
 
-Requires Swift 3.0 and iOS 8.0 and ARC.
+Requires Swift 5.0 and iOS 12.0 and ARC.
 
 ### Using CocoRongPullToRefresh?
 
@@ -83,12 +84,6 @@ Forks, patches and other feedback are welcome.
 ### Creator
 I'm Mellong, you can contact me by E-Mail: <tendencystudio@gmail.com>
 
-Website: [http://www.devlong.com](http://www.devlong.com)
-
-## More
-Learn more? Follow my `WeChat` public account `mellong`:
-
-![WeChat QRcode](http://www.devlong.com/blogImages/qrcode_for_mellong.jpg)
 
 ### License
 

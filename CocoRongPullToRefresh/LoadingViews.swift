@@ -24,6 +24,7 @@
 import UIKit
 
 class LoadingCircletView: UIView, LoadingView {
+    var currentProgress: CGFloat = 0
 
     public func stopLoadingAnimation() {
         shapeLayer.removeAllAnimations()
@@ -34,11 +35,19 @@ class LoadingCircletView: UIView, LoadingView {
     }
     
     public func setProgress(progress: CGFloat) {
-        shapeLayer.strokeEnd = progress
-        
+        currentProgress = progress
+        if progress > 1 {
+            let angle = (progress - 1) * 360
+            let rotation = CATransform3DMakeRotation(CGFloat(angle * Double.pi / 180.0), 0, 0, 1)
+            shapeLayer.transform = rotation
+            shapeLayer.strokeEnd = 1
+        } else {
+            shapeLayer.strokeEnd = progress
+        }
     }
     
     public func startLoadingAnimation() {
+        shapeLayer.transform = CATransform3DIdentity
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.repeatCount = Float.infinity
         animation.toValue = .pi * 2.0
@@ -80,7 +89,10 @@ class LoadingCircletView: UIView, LoadingView {
         
         let drawCircle = { (center: CGPoint, radius: CGFloat) -> CALayer in
             let layer = CAShapeLayer()
-            layer.path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(-Double.pi / 2.0), endAngle: CGFloat(.pi * 2.0 - Double.pi / 2.0), clockwise: true).cgPath
+            layer.path = UIBezierPath(arcCenter: center, radius: radius, 
+                                      startAngle: CGFloat(-Double.pi / 2.0),
+                                      endAngle: CGFloat(.pi * 2.0 - Double.pi / 2.0),
+                                      clockwise: true).cgPath
             
             return layer
             
@@ -91,14 +103,14 @@ class LoadingCircletView: UIView, LoadingView {
         }
         
         // Draw circlet mask
-        let radiusDelta: CGFloat = 0.2
+        let radiusDelta: CGFloat = 0.3
         let distanceDelta:CGFloat = 4.0
         
         var degree: CGFloat = CGFloat(-Double.pi / 2.0 + 0.1)
         let radius: CGFloat = CRCongfiguration.radius
         var currentRadius: CGFloat = 1.0
         var layerList:[CALayer] = []
-        while degree <= CGFloat(.pi * 2.0 - Double.pi / 2.0 + 0.1) {
+        while degree <= CGFloat(.pi * 2.0 - Double.pi / 2.0 + 0.2) {
             
             currentRadius += radiusDelta
             
@@ -132,10 +144,18 @@ class LoadingRectangleView: UIView, LoadingView {
     }
 
     public func setProgress(progress: CGFloat) {
-        shapeLayer.strokeEnd = progress
+        if progress > 1 {
+            let angle = (progress - 1) * 360
+            let rotation = CATransform3DMakeRotation(CGFloat(angle * Double.pi / 180.0), 0, 0, 1)
+            shapeLayer.transform = rotation
+            shapeLayer.strokeEnd = 1
+        } else {
+            shapeLayer.strokeEnd = progress
+        }
     }
 
     public func startLoadingAnimation() {
+        shapeLayer.transform = CATransform3DIdentity
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.repeatCount = Float.infinity
         animation.toValue = .pi * 2.0
@@ -180,7 +200,14 @@ class LoadingCircleView: UIView, LoadingView {
     }
     
     public func setProgress(progress: CGFloat) {
-        shapeLayer.strokeEnd = progress
+        if progress > 1 {
+            let angle = (progress - 1) * 360
+            let rotation = CATransform3DMakeRotation(CGFloat(angle * Double.pi / 180.0), 0, 0, 1)
+            shapeLayer.transform = rotation
+            shapeLayer.strokeEnd = 1
+        } else {
+            shapeLayer.strokeEnd = progress
+        }
     }
     
     public func reset() {
@@ -190,6 +217,7 @@ class LoadingCircleView: UIView, LoadingView {
     }
     
     public func startLoadingAnimation() {
+        shapeLayer.transform = CATransform3DIdentity
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.repeatCount = Float.infinity
         animation.toValue = .pi * 2.0

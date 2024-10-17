@@ -56,11 +56,11 @@ class ViewController: UITableViewController {
         }
         
         // Enable pull to refresh.
-        tableView.cr.enablePullRefresh(loadingView: loadingView) {
+        tableView.cr.enablePullRefresh(loadingView: loadingView) { [weak self] in
             print("Start requesting data from the remote server...")
-            
+            guard let self else { return }
             // Network request simulation
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [unowned self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 
                 self.datasource = dataList
                 self.tableView.reloadData()
@@ -112,6 +112,7 @@ class ViewController: UITableViewController {
     
     deinit {
         tableView.cr.remove()
+        print("ViewController deinit")
     }
 }
 

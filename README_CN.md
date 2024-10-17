@@ -16,9 +16,10 @@
 * 下面代码是简单使用这个控件的例子
 
 ```swift
-tableView.cr.enablePullRefresh {
+tableView.cr.enablePullRefresh { [weak self] in
+	guard let self else { return }
 	    // 调用远程服务器的接口.
-        get("http://xxx.com/api/productlist") { dataList in
+    get("http://xxx.com/api/productlist") { dataList in
 		// 更新 table view 的数据源
 		self.tableView.datasource = dataList
 		self.tableView.reloadData()
@@ -38,7 +39,7 @@ tableView.cr.tintColor = UIColor.brown
 
 ```swift
 deinit {
-        tableView.cr.remove()
+    tableView.cr.remove()
 }
 ```
 
@@ -57,7 +58,7 @@ deinit {
 1. 添加 CocoRongPullToRefresh 到 podfile.
 
   ```ruby
-  pod "CocoRongPullToRefresh", "~> 1.0"
+  pod "CocoRongPullToRefresh", "~> 1.1.0"
   ```
 
 2. 使用命令 `pod install` 安装所有的库.
@@ -73,7 +74,7 @@ deinit {
 
 ### 要求
 
-Requires Swift 3.0 and iOS 8.0 and ARC.
+Requires Swift 5.0 and iOS 12.0 and ARC.
 
 ### 使用 CocoRongPullToRefresh?
 
@@ -87,13 +88,6 @@ Requires Swift 3.0 and iOS 8.0 and ARC.
 
 我是 Mellong, 可以发邮件联系我 E-Mail: <tendencystudio@gmail.com>
 
-个人网站: [http://blog.devlong.com](http://blog.devlong.com)
-
-## 更多
-
-想了解更多? 关注我的 `微信` 公众号 `mellong`:
-
-![微信二维码](http://www.devlong.com/blogImages/qrcode_for_mellong.jpg)
 
 ### License
 
