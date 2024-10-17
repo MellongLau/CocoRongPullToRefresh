@@ -57,7 +57,7 @@ deinit {
 1. 添加 CocoRongPullToRefresh 到 podfile.
 
 ```ruby
-  pod "CocoRongPullToRefresh", "~> 1.1.0"
+  pod "CocoRongPullToRefresh", "~> 1.1.3"
 ```
 
 2. 使用命令 `pod install` 安装所有的库.

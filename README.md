@@ -56,7 +56,7 @@ There are two approach to add `CocoRongPullToRefresh` to your exist project.
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "CocoRongPullToRefresh", "~> 1.1.0"
+  pod "CocoRongPullToRefresh", "~> 1.1.3"
   ```
 
 2. Install  Pod(s) running `pod install` command.
