@@ -250,7 +250,7 @@ public class PullToRefreshView: UIView {
                 
                 shouldObserve = false
                 
-                if let top = originalContentOffsetY {
+                if let _ = originalContentOffsetY {
                     let progress = getCurrentProgress()
                     let isReachMaxHeightOffsetY = progress >= 1.0
                     if let scrollView, !isDragging &&  isReachMaxHeightOffsetY && scrollView.isScrollEnabled {
@@ -272,7 +272,7 @@ public class PullToRefreshView: UIView {
                     loadingCircleView.reset()
                     loadingCircleView.setProgress(progress: progress)
                 }
-            } else if let top = originalContentOffsetY, y >= top - CRCongfiguration.maxHeight, let scrollView {
+            } else if let top = originalContentOffsetY, y >= top - CRCongfiguration.maxHeight {
                 isFinishLoading = true
                 isStartLoading = false
             }

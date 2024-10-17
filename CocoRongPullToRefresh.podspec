@@ -7,9 +7,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'http://www.devlong.com'
   s.authors = { 'Mellong' => 'tendencystudio@gmail.com' }
   s.source = { :git => 'https://github.com/MellongLau/CocoRongPullToRefresh.git', :tag => s.version }
-
   s.ios.deployment_target = '12.0'
-
   s.source_files = 'CocoRongPullToRefresh/*.swift'
   s.swift_version = '5.0'
 end
