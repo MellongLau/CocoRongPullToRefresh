@@ -25,7 +25,7 @@ import UIKit
 
 class LoadingCircletView: UIView, LoadingView {
     var currentProgress: CGFloat = 0
-
+    
     public func stopLoadingAnimation() {
         shapeLayer.removeAllAnimations()
     }
@@ -138,11 +138,11 @@ class LoadingRectangleView: UIView, LoadingView {
     public func stopLoadingAnimation() {
         shapeLayer.removeAllAnimations()
     }
-
+    
     public func reset() {
         shapeLayer.strokeEnd = 0
     }
-
+    
     public func setProgress(progress: CGFloat) {
         if progress > 1 {
             let angle = (progress - 1) * 360
@@ -153,7 +153,7 @@ class LoadingRectangleView: UIView, LoadingView {
             shapeLayer.strokeEnd = progress
         }
     }
-
+    
     public func startLoadingAnimation() {
         shapeLayer.transform = CATransform3DIdentity
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -164,14 +164,14 @@ class LoadingRectangleView: UIView, LoadingView {
         animation.duration = 1.0
         shapeLayer.add(animation, forKey: "RotationAnimation")
     }
-
+    
     public func setup() {
         let path = UIBezierPath(roundedRect: CGRect(x:-10, y:-10, width: 20, height: 20), cornerRadius: 2)
         shapeLayer.path = path.cgPath
         layer.addSublayer(shapeLayer)
         backgroundColor = UIColor.clear
     }
-
+    
     private var shapeLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.lineWidth = 2.0
@@ -192,7 +192,7 @@ class LoadingCircleView: UIView, LoadingView {
         layer.strokeEnd = 0
         return layer
     }()
-
+    
     public func setup() {
         shapeLayer.path = drawPath(center: CGPoint.zero, radius: Double(CRCongfiguration.radius))
         layer.addSublayer(shapeLayer)

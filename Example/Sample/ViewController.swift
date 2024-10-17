@@ -36,10 +36,7 @@ class ViewController: UITableViewController {
         
         tableView.tableFooterView = UIView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        var dataList: [String] = []
-        for i in 1...30 {
-            dataList.append("Title for \(i)")
-        }
+        
         
         var loadingView: LoadingView
         
@@ -59,9 +56,13 @@ class ViewController: UITableViewController {
         tableView.cr.enablePullRefresh(loadingView: loadingView) { [weak self] in
             print("Start requesting data from the remote server...")
             guard let self else { return }
+            var dataList: [String] = []
+            let max = arc4random() % 10 + 20
+            for i in 1...max {
+                dataList.append("Title for \(i)")
+            }
             // Network request simulation
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                
                 self.datasource = dataList
                 self.tableView.reloadData()
                 self.loadingFinish()
@@ -112,7 +113,7 @@ class ViewController: UITableViewController {
     
     deinit {
         tableView.cr.remove()
-        print("ViewController deinit")
+        debugPrint("ViewController deinit")
     }
 }
 

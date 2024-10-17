@@ -17,15 +17,15 @@ Pull to refresh is one of most frequently feature to be used in the all of apps,
 
 ```swift
 tableView.cr.enablePullRefresh { [weak self] in
-	guard let self else { return }
-	// Call data api from remote server.
+    guard let self else { return }
+    // Call data api from remote server.
     get("http://xxx.com/api/productlist") { dataList in
-		// Update table view datasource
-		self.tableView.datasource = dataList
-		self.tableView.reloadData()
-		// Finish refresh	
-		self.tableView.cr.stopRefresh()
-	}	
+        // Update table view datasource
+        self.tableView.datasource = dataList
+        self.tableView.reloadData()
+        // Finish refresh	
+        self.tableView.cr.stopRefresh()
+    }	
 }
 ```
 
@@ -56,7 +56,7 @@ There are two approach to add `CocoRongPullToRefresh` to your exist project.
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "CocoRongPullToRefresh", "~> 1.0.0"
+  pod "CocoRongPullToRefresh", "~> 1.1.0"
   ```
 
 2. Install  Pod(s) running `pod install` command.
@@ -72,7 +72,7 @@ or download directly, then copy `CocoRongPullToRefresh` folder and add reference
 
 ### Requirements
 
-Requires Swift 5.0 and iOS 12.0 and ARC.
+Requires Swift 5.0+ and iOS 12.0+.
 
 ### Using CocoRongPullToRefresh?
 

@@ -1,11 +1,10 @@
-
 # CocoRongPullToRefresh
 
 *喜欢这个项目？* `点击Star按钮支持我们吧!`
 
 下拉刷新功能应该是所用 app 中使用最频繁的功能了， 这个组件为你的 table view提供了最简单使用方式的下拉刷新特性。
 
-![截图](./screenshot/screenshot.gif) 
+![截图](./screenshot/screenshot.gif)
 
 ### 语言
 
@@ -17,15 +16,15 @@
 
 ```swift
 tableView.cr.enablePullRefresh { [weak self] in
-	guard let self else { return }
-	    // 调用远程服务器的接口.
+    guard let self else { return }
+    // 调用远程服务器的接口.
     get("http://xxx.com/api/productlist") { dataList in
-		// 更新 table view 的数据源
-		self.tableView.datasource = dataList
-		self.tableView.reloadData()
-		// 完成刷新	
-		self.tableView.cr.stopRefresh()
-	}	
+        // 更新 table view 的数据源
+        self.tableView.datasource = dataList
+        self.tableView.reloadData()
+        // 完成刷新
+        self.tableView.cr.stopRefresh()
+    }
 }
 ```
 
@@ -57,9 +56,9 @@ deinit {
 
 1. 添加 CocoRongPullToRefresh 到 podfile.
 
-  ```ruby
+```ruby
   pod "CocoRongPullToRefresh", "~> 1.1.0"
-  ```
+```
 
 2. 使用命令 `pod install` 安装所有的库.
 3. 引用 CocoRongPullToRefresh： `import CocoRongPullToRefresh `.
@@ -68,13 +67,13 @@ deinit {
 
 使用 Terminal.app 运行以下命令:
 
-	$ git clone https://github.com/MellongLau/CocoRongPullToRefresh.git
+    $ git clone https://github.com/MellongLau/CocoRongPullToRefresh.git
 
 或者直接下载并拷贝 `CocoRongPullToRefresh` 文件夹和添加引用到你的项目中.
 
 ### 要求
 
-Requires Swift 5.0 and iOS 12.0 and ARC.
+需要 Swift 5.0+ 和 iOS 12.0+.
 
 ### 使用 CocoRongPullToRefresh?
 
@@ -87,7 +86,6 @@ Requires Swift 5.0 and iOS 12.0 and ARC.
 ### 关于创建者
 
 我是 Mellong, 可以发邮件联系我 E-Mail: <tendencystudio@gmail.com>
-
 
 ### License
 
